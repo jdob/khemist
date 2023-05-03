@@ -9,10 +9,10 @@ vm_gw: 192.168.131.1
 vm_net: 192.168.131.0/24
 
 vm_hostname: ruby
-vm_instance_name: {{ vm_hostname }}
+vm_instance_name: "{{ vm_hostname }}"
 
-vm_memory: 8192
-vm_vcpus: 2
+vm_memory: 2048
+vm_vcpus: 1
 
 vm_libvirt_network_params: '--network bridge=dobtech,model=virtio'
 vm_networking:
