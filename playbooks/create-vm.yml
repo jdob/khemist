@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+
+    - name: Create Virtual Machine
+      include_role:
+        name: vm
+      vars:
+        vm_hostname: "{{ vm_hostname }}"
+        vm_instance_name: "{{ vm_instance_name }}"
+        vm_public_network_ip: "{{ vm_ip_1 }}"
+        vm_libvirt_network_params: "{{ vm_libvirt_network_params }}"
+        vm_network: "{{ vm_networking }}"

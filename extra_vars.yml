@@ -1,0 +1,28 @@
+vm_authorized_ssh_keys:
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCsc0LyyDie9jRROzORapuhjmQCwu7EyEOLlX+zezQYMlWFF/ElrwR3DIaY976PbdSvgdn6kciiGT3i1fvRCFehtX0idaa+ESJqf2Lb5bUp8PZxD7FCJH1qOWgwnOyORZUNLRyBQB4n6nh7c8AK255tNhA8AOOTKZNKPKtDQSQpB+TcuCs8pIcKiqAyPoeiJDvpRqWbWaFsUUiN8p8W1G/fhSj85SOG7mmJzv9JWeGQ6GsZC4vVRhBAZT7IH2L2hn4rdMsGaSlzRCmnmnqKiH6rlQMVa2BY5dMTeG5KgISR98H7Dmxu1v+wrOW639W14rgPWMR0+niTOXk6XbAI24sP 11-16-2011
+
+vm_user: jdobies
+vm_user_plain_text_password: jdobies
+
+vm_ip: 192.168.131.100
+vm_gw: 192.168.131.1
+vm_net: 192.168.131.0/24
+
+vm_hostname: ruby
+vm_instance_name: {{ vm_hostname }}
+
+vm_memory: 8192
+vm_vcpus: 2
+
+vm_libvirt_network_params: '--network bridge=dobtech,model=virtio'
+vm_networking:
+  version: 2
+  ethernets:
+    eth0:
+      dhcp4: false
+      addresses: ["{{ vm_ip }}/24"]
+      nameservers:
+        addresses: [8.8.8.8]
+      routes:
+        - to: default
+          via: "{{ vm_gw }}"
